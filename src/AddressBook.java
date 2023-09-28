@@ -1,18 +1,27 @@
 import java.util.*;
 
 public class AddressBook{
-    private ArrayList<BuddyInfo> buddyInfoList;
+    private ArrayList<BuddyInfo> myBuddies;
 
     public AddressBook() {
-        buddyInfoList = new ArrayList<>();
+        myBuddies = new ArrayList<>();
     }
 
-    public void addBuddy(BuddyInfo buddy){
-        buddyInfoList.add(buddy);
+    public void addBuddy(BuddyInfo aBuddy){
+        if (aBuddy != null){
+            myBuddies.add(aBuddy);
+        }
     }
 
-    public void removeBuddy(BuddyInfo buddy){
-        buddyInfoList.remove(buddy);
+    public BuddyInfo removeBuddy(int i){
+        if(i >= 0 && i < myBuddies.size()){
+            return myBuddies.remove(i);
+        }
+        return null;
+    }
+    
+    public Object testMethod (int x){
+        return null;
     }
 
     public static void main(String[] args){
@@ -20,7 +29,7 @@ public class AddressBook{
         BuddyInfo buddy = new BuddyInfo("Tom","Carleton","613");
         AddressBook addressBook = new AddressBook();
         addressBook.addBuddy(buddy);
-        addressBook.removeBuddy(buddy);
+        addressBook.removeBuddy(0);
     }
     //test test
 
